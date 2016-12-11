@@ -9,28 +9,30 @@ $common-fg: #d9d7ce;
 $danger: #ff3333;
 $is-active: #607080;
 $is-hover: #272d38;
+$aside-size: 270px;
 
-@import "node_modules/bulma/bulma.sass";
+@import 'node_modules/bulma/bulma.sass';
 
 
-#container {
-  display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  // align-items: stretch;
-  // align-content: stretch;
-  // justify-content: space-between;
-  // justify-content: space-around;
-  // max-width: 1200px;
+.wrapper, html, body {
+  height: 100%;
 }
-/* Sidebar */
-.aside {
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+// Sidebar
+.sidebar {
   // padding: 20px 20px;
-  padding: 10px;
-  width: 250px;
-  flex: 0 0 250px;
+  // padding: 10px;
+  width: $aside-size;
+  flex: 0 0 $aside-size;
   background-color: $common-bg;
 
+  aside {
+    margin: 10px;
+  }
   .menu-label {
     color: $orange;
   }
@@ -45,15 +47,31 @@ $is-hover: #272d38;
     // color: $is-active;
     background-color: $is-active;
   }
+  .is-brand {
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 800;
+    font-size: 1.5em;
+  }
 }
 .main {
   flex-grow: 1;
+  margin-left: $aside-size;
   // width: 100vh;
   // width: auto;
+  .columns {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .is-fullheight {
-  height: 100vh
+  height: 100vh;
+  position: fixed;
+  // height: 100%;
+  // top: 0;
+  // bottom: 0;
   // background-color: gray;
 }
 
